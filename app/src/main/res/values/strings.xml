@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">firstandroidapp</string>
+    <string name="press_the_button_below">Press The Button Below</string>
+    <string name="hello_welcome_to_aufa_app">Hello! Welcome to Aufa App</string>
+    <string name="start">Start</string>
+</resources>
