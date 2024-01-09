@@ -13,7 +13,10 @@
         android:theme="@style/Theme.Firstandroidapp"
         tools:targetApi="31">
         <activity
-            android:name=".LoginForm"
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginFormActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

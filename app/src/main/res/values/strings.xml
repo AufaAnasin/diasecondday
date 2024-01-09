@@ -3,4 +3,9 @@
     <string name="press_the_button_below">Press The Button Below</string>
     <string name="hello_welcome_to_aufa_app">Hello! Welcome to Aufa App</string>
     <string name="start">Start</string>
+    <string name="password">Password</string>
+    <string name="this_is_homepage">This is Homepage</string>
+    <string name="login">Login</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

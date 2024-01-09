@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginForm"
+    tools:context=".LoginFormActivity"
     android:background="@color/Purple"
     >
     <RelativeLayout
@@ -34,7 +34,7 @@
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:drawableEnd="@drawable/ic_password_toggle"
             android:drawableRight="@drawable/ic_password_toggle"
@@ -43,6 +43,12 @@
         <Button
             android:layout_width="120dp"
             android:layout_height="60dp"
+            android:layout_below="@+id/passwordEditText"
+            android:layout_centerInParent="true"
+            android:text="@string/login"
+            android:id="@+id/btnLogin"
+            />
 
     </RelativeLayout>
+
 </RelativeLayout>
