@@ -5,7 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.dia.firstandroidapp.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.dia.firstandroidapp.adapter.TransactionAdapter
+import com.dia.firstandroidapp.databinding.FragmentTransactionBinding
+import com.dia.firstandroidapp.model.Transaction
+import com.google.android.material.snackbar.Snackbar
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,10 +21,14 @@ private const val ARG_PARAM2 = "param2"
  * Use the [TransactionFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class TransactionFragment : Fragment() {
+class TransactionFragment : Fragment(), TransactionAdapter.TransactionCalllBack {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private lateinit var binding: FragmentTransactionBinding
+    private lateinit var transactionHistoryAdapter: TransactionAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +43,29 @@ class TransactionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_transaction, container, false)
+        binding = FragmentTransactionBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.rvTransaction.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+        }
+        val transactionHistoryList = ArrayList<Transaction>()
+        transactionHistoryList.add(
+            Transaction(12231, 123131.0, "Aufa", "Anasin", "Success", "08:23:23 - 25/01/24", "Transfer")
+        )
+        transactionHistoryList.add(
+            Transaction(12212313, 112331.0, "Aufa", "Anasin", "Success", "08:24:23 - 25/01/24", "Transfer")
+        )
+        transactionHistoryList.add(
+            Transaction(1221231231, 14545431.0, "Aufa", "Anasin", "Success", "08:25:23 - 25/01/24", "Transfer")
+        )
+
+        transactionHistoryAdapter = TransactionAdapter(transactionHistoryList, this)
+        binding.rvTransaction.adapter = transactionHistoryAdapter
     }
 
     companion object {
@@ -56,5 +86,9 @@ class TransactionFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onTransactionSelected(transaction: Transaction) {
+        Snackbar.make(binding.root, "Receiver: ${transaction.receiverName}, Amount: ${transaction.amount}", Snackbar.LENGTH_LONG).show()
     }
 }

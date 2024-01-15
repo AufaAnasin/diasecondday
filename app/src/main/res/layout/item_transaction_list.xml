@@ -77,7 +77,7 @@
             android:layout_height="wrap_content"
             android:text="Status: "
             android:textSize="16dp"
-            android:id="@+id/tv_transactionReceiver"/>
+            android:id="@+id/tv_transactionStatusCode"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -86,6 +86,7 @@
             android:layout_toRightOf="@+id/tv_transactionId"
             />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -126,6 +127,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Transfer"
+            android:textSize="16dp"
+            android:layout_toRightOf="@+id/tv_transactionType"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/llTransactionAmount"
+        android:paddingHorizontal="12dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/llTransactionType"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amount: "
+            android:textSize="16dp"
+            android:id="@+id/tv_transactionAmount"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1231231"
             android:textSize="16dp"
             android:layout_toRightOf="@+id/tv_transactionType"
             />
